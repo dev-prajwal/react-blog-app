@@ -18,11 +18,12 @@ const Select = React.forwardRef(
                     {...props}
                 >
                     {
-                        options.map((option) => {
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        })
+                        options.map((option) => (
+                            <option
+                                key={option}
+                                value={option}
+                            >{option}</option>
+                        ))
                     }
                 </select>
             </div>

@@ -11,7 +11,7 @@ import RTE from '../RTE'
 function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
-            tittle: post?.title || "",
+            title: post?.title || "",
             slug: post?.slug || "",
             content: post?.content || "",
             status: post?.status || "active"
@@ -22,6 +22,7 @@ function PostForm({ post }) {
     const userData = useSelector((state) => state.auth.userData)
 
     const submit = async (data) => {
+        console.log('data', data)
         if (post) {
             console.log('post', post)
             const file = data.image[0] ? await appwriteSerice.uploadFile(data.image[0]) : null
@@ -35,6 +36,7 @@ function PostForm({ post }) {
             }
         } else {
             const file = await appwriteSerice.uploadFile(data.image[0])
+            console.log('file', file)
             if (file) {
                 const fileId = file.$id
                 data.featuredImage = fileId
@@ -47,7 +49,6 @@ function PostForm({ post }) {
     }
 
     const slugTransform = useCallback((value) => {
-        console.log('value',value)
         if (value && typeof value === "string") return value.trim().toLowerCase().replace(/[^a-zA-Z\d\s]+/g, '-')
             .replace(/\s/g, "-")
     }, [])
@@ -67,7 +68,7 @@ function PostForm({ post }) {
                     label="Title"
                     placeholder="Title"
                     className="mb-4"
-                    {...register("tittle", { required: true })}
+                    {...register("title", { required: true })}
                 />
                 <Input
                     label="Slug :"
@@ -109,7 +110,7 @@ function PostForm({ post }) {
                 <Button
                     type="submit"
                     bgColor={post ? "bg-green-500" : undefined}
-                    className="w-full"
+                    className="w-full bg-slate-900"
                 >{post ? "Update" : "Submit"}</Button>
             </div>
         </form>
