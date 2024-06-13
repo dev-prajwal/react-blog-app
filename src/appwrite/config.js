@@ -32,11 +32,11 @@ export class Service {
         }
     }
 
-    async createPost({ title, slug, content, featuredImg, status, userId }) {
+    async createPost({ title, slug, content, featuredImage, status, userId }) {
         try {
             return await this.databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId,
                 slug, {
-                title, content, featuredImg, status, userId
+                title, content, featuredImage, status, userId
             }
             )
         } catch (error) {
@@ -45,11 +45,11 @@ export class Service {
         }
     }
 
-    async updatePost(slug, { title, slug, content, featuredImg, status, }) {
+    async updatePost(slug, { title, slug, content, featuredImage, status, }) {
         try {
             return await this.databases.updateDocument(conf.appwriteDatabaseId,
                 conf.appwriteCollectionId, slug,
-                { title, content, featuredImg, status }
+                { title, content, featuredImage, status }
             )
         } catch (error) {
             console.log('updatePost', error)
