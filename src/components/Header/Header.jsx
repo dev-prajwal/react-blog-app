@@ -1,4 +1,4 @@
-import { Container } from 'postcss'
+import Container from '../container/Container'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'

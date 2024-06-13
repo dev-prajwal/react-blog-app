@@ -70,7 +70,7 @@ function Signup() {
                             type="password"
                             placeholder="Password"
                         />
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full bg-slate-900">
                             Create Account
                         </Button>
                     </div>

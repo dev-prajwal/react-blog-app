@@ -64,7 +64,7 @@ function Login() {
                             placeholder="Password"
                             {...register("password", { required: true })}
                         />
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full bg-slate-900">
                             Sign in{" "}
                         </Button>
                     </div>
